@@ -1,6 +1,19 @@
 
+
 import React, { useEffect } from 'react';
 import { TonConnectButton, TonConnectUIProvider } from '@tonconnect/ui-react';
+
+// Добавляем объявление для window.Telegram
+declare global {
+  interface Window {
+    Telegram?: {
+      WebApp?: {
+        ready: () => void;
+        // Можно добавить другие методы и свойства по необходимости
+      };
+    };
+  }
+}
 
 
 function App() {
