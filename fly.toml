@@ -1,41 +1,23 @@
-# fly.toml app configuration file generated for tgrwagft on 2025-07-10T12:39:56+07:00
+# fly.toml app configuration file generated for tgrwagft on 2025-07-10T06:33:36Z
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = 'tgrwagft'
-primary_region = 'ams'
+primary_region = 'sin'
 
 [build]
 
-[env]
-  NODE_ENV = 'production'
-
 [http_service]
-  internal_port = 80
+  internal_port = 8080
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true
   min_machines_running = 0
   processes = ['app']
 
-[[services]]
-  protocol = 'tcp'
-  internal_port = 4173
-
-  [[services.ports]]
-    port = 80
-    handlers = ['http']
-
-  [[services.ports]]
-    port = 443
-    handlers = ['tls', 'http']
-
-  [[services.tcp_checks]]
-    interval = '10s'
-    timeout = '2s'
-
 [[vm]]
   memory = '512mb'
   cpu_kind = 'shared'
   cpus = 1
+  memory_mb = 1024
