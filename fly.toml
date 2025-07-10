@@ -1,5 +1,5 @@
 # fly.toml app configuration file generated for telegram-mini-app on 2025-07-10T00:00:00Z
-app = "TGRWAGFT"
+app = "tgrwagft"
 primary_region = "ams"
 
 [env]
