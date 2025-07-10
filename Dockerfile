@@ -13,5 +13,5 @@ COPY --from=build /app/tonconnect-manifest.json ./dist/
 COPY --from=build /app/telegramlogo.svg ./dist/
 COPY --from=build /app/index.html ./dist/
 
-EXPOSE 4173
-CMD ["serve", "-s", "dist", "-l", "4173"]
+EXPOSE 8080
+CMD ["serve", "-s", "dist", "-l", "8080"]
