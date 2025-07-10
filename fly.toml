@@ -1,22 +1,41 @@
-# fly.toml app configuration file generated for telegram-mini-app on 2025-07-10T00:00:00Z
-app = "tgrwagft"
-primary_region = "ams"
+# fly.toml app configuration file generated for tgrwagft on 2025-07-10T12:39:56+07:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'tgrwagft'
+primary_region = 'ams'
+
+[build]
 
 [env]
-  NODE_ENV = "production"
+  NODE_ENV = 'production'
+
+[http_service]
+  internal_port = 80
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
 
 [[services]]
+  protocol = 'tcp'
   internal_port = 4173
-  protocol = "tcp"
 
   [[services.ports]]
-    handlers = ["http"]
     port = 80
+    handlers = ['http']
 
   [[services.ports]]
-    handlers = ["tls", "http"]
     port = 443
+    handlers = ['tls', 'http']
 
   [[services.tcp_checks]]
-    interval = 10000
-    timeout = 2000
+    interval = '10s'
+    timeout = '2s'
+
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
