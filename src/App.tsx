@@ -9,10 +9,10 @@ import { TonConnectButton, TonConnectUIProvider } from '@tonconnect/ui-react';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
 const giftModels = [
-  '/src/3d/Purple_Heart_Buddy_0704043729_texture.glb',
-  '/src/3d/Purple_Heart_Buddy_0704043432_texture.glb',
-  '/src/3d/Purple_Heart_Buddy_0704043415_texture.glb',
-  '/src/3d/Purple_Heart_Buddy_0704043357_texture.glb',
+  '/3d/Purple_Heart_Buddy_0704043729_texture.glb',
+  '/3d/Purple_Heart_Buddy_0704043432_texture.glb',
+  '/3d/Purple_Heart_Buddy_0704043415_texture.glb',
+  '/3d/Purple_Heart_Buddy_0704043357_texture.glb',
 ];
 
 function GiftModel({ url }: { url: string }) {
@@ -296,18 +296,18 @@ function GiftCarousel() {
 }
   // Данные для карточек (можно вынести в отдельный файл)
   const popular = [
-    { icon: '🟢', img: '/src/3d/pepe.png', name: 'Pepe Toy', sub: 'Rare', price: '', btn: 'Gift' },
-    { icon: '🐰', img: '/src/3d/bunny.png', name: 'Plush Bunny', sub: '$2,00', price: '$2,00', btn: 'Gift' },
-    { icon: '🪙', img: '/src/3d/shiba.png', name: 'Shiba Inu Coin', sub: '$5,00', price: '$5,00', btn: 'Gift' },
+    { icon: '🟢', img: '/3d/pepe.png', name: 'Pepe Toy', sub: 'Rare', price: '', btn: 'Gift' },
+    { icon: '🐰', img: '/3d/bunny.png', name: 'Plush Bunny', sub: '$2,00', price: '$2,00', btn: 'Gift' },
+    { icon: '🪙', img: '/3d/shiba.png', name: 'Shiba Inu Coin', sub: '$5,00', price: '$5,00', btn: 'Gift' },
   ];
   const arrivals = [
-    { icon: '🧸', img: '/src/3d/bear.png', name: 'Lovey Bear', sub: 'Epic', price: '', btn: 'Gift' },
-    { icon: '🐔', img: '/src/3d/chicken.png', name: 'Birthday Chicken', sub: '', price: '', btn: 'Gift' },
+    { icon: '🧸', img: '/3d/bear.png', name: 'Lovey Bear', sub: 'Epic', price: '', btn: 'Gift' },
+    { icon: '🐔', img: '/3d/chicken.png', name: 'Birthday Chicken', sub: '', price: '', btn: 'Gift' },
   ];
   const collections = [
-    { icon: '🟢', img: '/src/3d/pepe.png', name: 'Memes' },
-    { icon: '🟦', img: '/src/3d/nft.png', name: 'NFTs' },
-    { icon: '🔵', img: '/src/3d/plush.png', name: 'Plush' },
+    { icon: '🟢', img: '/3d/pepe.png', name: 'Memes' },
+    { icon: '🟦', img: '/3d/nft.png', name: 'NFTs' },
+    { icon: '🔵', img: '/3d/plush.png', name: 'Plush' },
   ];
   return (
     <div style={{
@@ -324,7 +324,7 @@ function GiftCarousel() {
         <div style={{ width: '100%', padding: '0 0 0 0', position: 'relative', minHeight: 120 }}>
           <button style={{ position: 'absolute', left: 18, top: 24, background: 'none', border: 'none', fontSize: 28, color: '#8bb6e6', cursor: 'pointer' }}>{'\u2190'}</button>
           <div style={{ textAlign: 'center', fontWeight: 700, fontSize: 28, marginTop: 24, color: '#222' }}>Gift Store</div>
-          <img src="/src/3d/peepo_hero.png" alt="hero" style={{ position: 'absolute', right: -18, top: 0, width: 160, height: 160, objectFit: 'contain', pointerEvents: 'none' }} />
+          <img src="/3d/peepo_hero.png" alt="hero" style={{ position: 'absolute', right: -18, top: 0, width: 160, height: 160, objectFit: 'contain', pointerEvents: 'none' }} />
         </div>
         <div style={{ width: '100%', padding: '0 24px', marginTop: 8, marginBottom: 18 }}>
           <div style={{ fontWeight: 700, fontSize: 26, color: '#222', marginBottom: 6 }}>Give Emotions<br />in Telegram</div>
