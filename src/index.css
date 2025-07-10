@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f4f7fa;
+}
+
+#root {
+  min-height: 100vh;
+}

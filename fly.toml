@@ -1,0 +1,25 @@
+# fly.toml app configuration file generated for telegram-mini-app on 2025-07-10T00:00:00Z
+app = "telegram-mini-app"
+primary_region = "ams"
+
+[build]
+  builder = "heroku/buildpacks:20"
+
+[env]
+  NODE_ENV = "production"
+
+[[services]]
+  internal_port = 4173
+  protocol = "tcp"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    interval = 10000
+    timeout = 2000
