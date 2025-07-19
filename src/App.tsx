@@ -55,7 +55,7 @@ function GiftCarousel() {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
-      minHeight: 'calc(100vh - 64px)', background: 'linear-gradient(180deg, #a18fff 0%, #7f5fff 100%)', padding: 0,
+      minHeight: 'calc(100vh - 64px)', background: '#f8f9ff', padding: 0,
       width: '100vw',
       overflow: 'hidden',
     }}>
@@ -148,7 +148,116 @@ function GiftCarousel() {
   );
 }
 
-function ShopPage() {
+function HeroBlock() {
+  return (
+    <div style={{
+      width: '100%',
+      background: 'linear-gradient(135deg, #7f5fff 0%, #a18fff 100%)',
+      borderRadius: '24px 24px 0 0',
+      padding: '32px 24px',
+      position: 'relative',
+      overflow: 'hidden',
+      marginBottom: 24,
+    }}>
+      {/* Фоновые элементы */}
+      <div style={{
+        position: 'absolute',
+        top: -20,
+        right: -20,
+        width: 120,
+        height: 120,
+        background: 'rgba(255, 255, 255, 0.1)',
+        borderRadius: '50%',
+        zIndex: 1,
+      }} />
+      <div style={{
+        position: 'absolute',
+        bottom: -30,
+        left: -30,
+        width: 80,
+        height: 80,
+        background: 'rgba(255, 255, 255, 0.08)',
+        borderRadius: '50%',
+        zIndex: 1,
+      }} />
+      
+      {/* Основной контент */}
+      <div style={{
+        position: 'relative',
+        zIndex: 2,
+        display: 'flex',
+        alignItems: 'center',
+        gap: 20,
+      }}>
+        {/* Изображение фигурки лягушки */}
+        <div style={{
+          flexShrink: 0,
+          width: 100,
+          height: 100,
+          borderRadius: '20px',
+          background: '#fff',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.15)',
+          overflow: 'hidden',
+        }}>
+          <img 
+            src="/img/pepe.png" 
+            alt="Frog Figure Gift" 
+            style={{
+              width: '80%',
+              height: '80%',
+              objectFit: 'contain',
+            }}
+          />
+        </div>
+        
+        {/* Текстовый контент */}
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{
+            color: '#fff',
+            fontSize: 22,
+            fontWeight: 800,
+            marginBottom: 8,
+            lineHeight: 1.2,
+            wordWrap: 'break-word',
+            overflowWrap: 'break-word',
+          }}>
+            Special PEPE Figure
+          </div>
+          <div style={{
+            color: 'rgba(255, 255, 255, 0.9)',
+            fontSize: 14,
+            fontWeight: 500,
+            marginBottom: 16,
+            lineHeight: 1.4,
+            wordWrap: 'break-word',
+            overflowWrap: 'break-word',
+          }}>
+            Send this adorable frog figure to your friends in Telegram!
+          </div>
+          <button style={{
+            background: 'rgba(255, 255, 255, 0.2)',
+            color: '#fff',
+            border: '2px solid rgba(255, 255, 255, 0.3)',
+            borderRadius: 12,
+            padding: '10px 20px',
+            fontWeight: 700,
+            fontSize: 16,
+            cursor: 'pointer',
+            transition: 'all 0.2s ease',
+            backdropFilter: 'blur(10px)',
+          }}>
+            Send Gift
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ShopPage({ setPage }: { setPage: (page: 'shop' | 'gifts' | 'profile' | 'hero') => void }) {
   // Данные для карточек (можно вынести в отдельный файл)
   const popular = [
     { icon: '🟢', img: '/img/frog.png', name: 'Pepe Toy', sub: 'Rare', price: '', btn: 'Gift' },
@@ -166,7 +275,7 @@ function ShopPage() {
   ];
   return (
     <div style={{
-      minHeight: '100vh', background: 'linear-gradient(180deg,#eaf3ff 0%,#cbe3ff 100%)',
+      minHeight: '100vh', background: '#f8f9ff',
       display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start',
       padding: 0,
     }}>
@@ -176,118 +285,10 @@ function ShopPage() {
         display: 'flex', flexDirection: 'column', alignItems: 'center',
       }}>
         {/* Header */}
-        <div style={{ width: '100%', padding: '0 0 0 0', position: 'relative', minHeight: 120 }}>
+        <div style={{ width: '100%', padding: '0 0 0 0', position: 'relative', minHeight: 80 }}>
           <div style={{ textAlign: 'center', fontWeight: 700, fontSize: 28, marginTop: 24, color: '#222' }}>Gift Store</div>
-          <img src="/3d/peepo_hero.png" alt="hero" style={{ position: 'absolute', right: -18, top: 0, width: 160, height: 160, objectFit: 'contain', pointerEvents: 'none' }} />
         </div>
-        <div style={{ 
-          width: '100%', 
-          padding: '0 24px', 
-          marginTop: 8, 
-          marginBottom: 18,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}>
-          <div style={{ 
-            flex: 1,
-            fontWeight: 700, 
-            fontSize: 26, 
-            color: '#222', 
-            marginBottom: 6,
-            lineHeight: 1.2,
-          }}>
-            Give Emotions<br />in Telegram
-          </div>
-          <div style={{
-            width: 120,
-            height: 120,
-            position: 'relative',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-            {/* Мультяшный персонаж с сердцем */}
-            <div style={{
-              width: 100,
-              height: 100,
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}>
-              {/* Сердце */}
-              <div style={{
-                width: 60,
-                height: 60,
-                background: 'linear-gradient(135deg, #87CEEB 0%, #4FD1FA 100%)',
-                borderRadius: '50% 50% 50% 0',
-                transform: 'rotate(-45deg)',
-                position: 'absolute',
-                zIndex: 1,
-                boxShadow: '0 4px 12px rgba(79, 209, 250, 0.3)',
-              }} />
-              
-              {/* Персонаж - левая часть (фиолетовая) */}
-              <div style={{
-                width: 80,
-                height: 80,
-                background: 'linear-gradient(135deg, #7f5fff 0%, #a18fff 100%)',
-                borderRadius: '50%',
-                position: 'absolute',
-                left: -10,
-                zIndex: 2,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <div style={{
-                  width: 12,
-                  height: 12,
-                  background: '#fff',
-                  borderRadius: '50%',
-                  marginRight: 8,
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-                }} />
-              </div>
-              
-              {/* Персонаж - правая часть (оранжевая) */}
-              <div style={{
-                width: 80,
-                height: 80,
-                background: 'linear-gradient(135deg, #FF8C42 0%, #FF6B35 100%)',
-                borderRadius: '50%',
-                position: 'absolute',
-                right: -10,
-                zIndex: 2,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-                <div style={{
-                  width: 12,
-                  height: 12,
-                  background: '#fff',
-                  borderRadius: '50%',
-                  marginLeft: 8,
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-                }} />
-              </div>
-              
-              {/* Рот */}
-              <div style={{
-                width: 20,
-                height: 8,
-                background: '#FFD700',
-                borderRadius: '50%',
-                position: 'absolute',
-                bottom: 15,
-                zIndex: 3,
-                boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-              }} />
-            </div>
-          </div>
-        </div>
+        
         {/* Popular Gifts */}
         <div style={{ width: '100%', padding: '0 24px', marginTop: 8 }}>
           <div style={{ fontWeight: 700, fontSize: 20, color: '#222', marginBottom: 10 }}>Popular Gifts</div>
@@ -297,7 +298,12 @@ function ShopPage() {
                 <img src={g.img} alt={g.name} style={{ width: 54, height: 54, marginBottom: 6 }} />
                 <div style={{ fontWeight: 700, fontSize: 15, color: '#222', textAlign: 'center', marginBottom: 2 }}>{g.name}</div>
                 <div style={{ fontSize: 13, color: '#8bb6e6', fontWeight: 600, marginBottom: 8 }}>{g.sub}</div>
-                <button style={{ background: 'linear-gradient(90deg,#4fd1fa 0%,#7f5fff 100%)', color: '#fff', border: 'none', borderRadius: 12, fontWeight: 700, fontSize: 15, padding: '7px 0', width: '100%', maxWidth: 70, boxShadow: '0 2px 8px #4fd1fa22', cursor: 'pointer' }}>{g.btn}</button>
+                <button 
+                  onClick={() => setPage('gifts')}
+                  style={{ background: 'linear-gradient(90deg,#4fd1fa 0%,#7f5fff 100%)', color: '#fff', border: 'none', borderRadius: 12, fontWeight: 700, fontSize: 15, padding: '7px 0', width: '100%', maxWidth: 70, boxShadow: '0 2px 8px #4fd1fa22', cursor: 'pointer' }}
+                >
+                  {g.btn}
+                </button>
               </div>
             ))}
           </div>
@@ -311,7 +317,12 @@ function ShopPage() {
                 <img src={g.img} alt={g.name} style={{ width: 54, height: 54, marginBottom: 6 }} />
                 <div style={{ fontWeight: 700, fontSize: 15, color: '#222', textAlign: 'center', marginBottom: 2 }}>{g.name}</div>
                 <div style={{ fontSize: 13, color: '#8bb6e6', fontWeight: 600, marginBottom: 8 }}>{g.sub}</div>
-                <button style={{ background: 'linear-gradient(90deg,#4fd1fa 0%,#7f5fff 100%)', color: '#fff', border: 'none', borderRadius: 12, fontWeight: 700, fontSize: 15, padding: '7px 0', width: '100%', maxWidth: 70, boxShadow: '0 2px 8px #4fd1fa22', cursor: 'pointer' }}>{g.btn}</button>
+                <button 
+                  onClick={() => setPage('gifts')}
+                  style={{ background: 'linear-gradient(90deg,#4fd1fa 0%,#7f5fff 100%)', color: '#fff', border: 'none', borderRadius: 12, fontWeight: 700, fontSize: 15, padding: '7px 0', width: '100%', maxWidth: 70, boxShadow: '0 2px 8px #4fd1fa22', cursor: 'pointer' }}
+                >
+                  {g.btn}
+                </button>
               </div>
             ))}
           </div>
@@ -330,14 +341,17 @@ function ShopPage() {
         </div>
         {/* Shop Now Button */}
         <div style={{ width: '100%', display: 'flex', justifyContent: 'center', marginTop: 8 }}>
-          <button style={{ background: 'linear-gradient(90deg,#4fd1fa 0%,#7f5fff 100%)', color: '#fff', border: 'none', borderRadius: 18, fontWeight: 800, fontSize: 22, padding: '16px 0', width: '90%', maxWidth: 320, boxShadow: '0 2px 8px #4fd1fa22', cursor: 'pointer', marginTop: 8 }}>Shop Now</button>
+          <button 
+            onClick={() => setPage('gifts')}
+            style={{ background: 'linear-gradient(90deg,#4fd1fa 0%,#7f5fff 100%)', color: '#fff', border: 'none', borderRadius: 18, fontWeight: 800, fontSize: 22, padding: '16px 0', width: '90%', maxWidth: 320, boxShadow: '0 2px 8px #4fd1fa22', cursor: 'pointer', marginTop: 8 }}
+          >
+            Shop Now
+          </button>
         </div>
       </div>
     </div>
   );
 }
-
-// ...existing code...
 
 // Добавляем объявление для window.Telegram
 declare global {
@@ -360,18 +374,83 @@ function App() {
     }
   }, []);
 
-  const [page, setPage] = useState<'shop' | 'gifts' | 'profile'>('shop');
+  const [page, setPage] = useState<'shop' | 'gifts' | 'profile' | 'hero'>('hero');
 
   return (
     <TonConnectUIProvider manifestUrl="https://tgrwagft.fly.dev/tonconnect-manifest.json">
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <div style={{ flex: 1, width: '100%' }}>
-          {page === 'shop' && <ShopPage />}
+          {page === 'shop' && <ShopPage setPage={setPage} />}
           {page === 'gifts' && <GiftCarousel />}
+          {page === 'hero' && (
+            <div style={{
+              minHeight: '100vh',
+              background: '#f8f9ff',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              padding: '24px 0 0 0',
+            }}>
+              <div style={{
+                width: 370,
+                maxWidth: '100vw',
+                background: '#fff',
+                borderRadius: 32,
+                boxShadow: '0 8px 32px #b3d6ff33',
+                overflow: 'hidden',
+              }}>
+                <HeroBlock />
+                <div style={{ padding: '24px', textAlign: 'center' }}>
+                  <div style={{ fontWeight: 700, fontSize: 24, color: '#222', marginBottom: 16 }}>
+                    Welcome to Gift Store
+                  </div>
+                  <div style={{ fontSize: 16, color: '#666', lineHeight: 1.5, marginBottom: 24 }}>
+                    Discover amazing gifts for your friends and family
+                  </div>
+                  <button 
+                    onClick={() => setPage('shop')}
+                    style={{
+                      background: 'linear-gradient(90deg, #4fd1fa 0%, #7f5fff 100%)',
+                      color: '#fff',
+                      border: 'none',
+                      borderRadius: 18,
+                      fontWeight: 700,
+                      fontSize: 18,
+                      padding: '14px 32px',
+                      cursor: 'pointer',
+                      boxShadow: '0 4px 16px rgba(79, 209, 250, 0.3)',
+                      marginBottom: 24,
+                    }}
+                  >
+                    Explore Store
+                  </button>
+                  
+                  {/* Картинка под кнопкой */}
+                  <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    marginTop: 16,
+                  }}>
+                    <img 
+                      src="/img/pepe figure.png" 
+                      alt="Pepe Figure" 
+                      style={{
+                        width: '80%',
+                        maxWidth: 280,
+                        height: 'auto',
+                        borderRadius: 16,
+                        boxShadow: '0 4px 16px rgba(0, 0, 0, 0.1)',
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
           {page === 'profile' && (
             <div style={{
               minHeight: '100vh',
-              background: 'linear-gradient(180deg, #7f5fff 0%, #a18fff 100%)',
+              background: '#f8f9ff',
               display: 'flex',
               flexDirection: 'column',
               padding: 0,
@@ -545,6 +624,25 @@ function App() {
           zIndex: 100,
         }}>
           <button
+            onClick={() => setPage('hero')}
+            style={{
+              background: 'none',
+              border: 'none',
+              outline: 'none',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              color: page === 'hero' ? '#7f5fff' : '#666',
+              fontWeight: page === 'hero' ? 600 : 400,
+              fontSize: 16,
+              flex: 1,
+              cursor: 'pointer',
+            }}
+          >
+            <span style={{ fontSize: 20, marginBottom: 2 }}>⌂</span>
+            <span>Home</span>
+          </button>
+          <button
             onClick={() => setPage('shop')}
             style={{
               background: 'none',
@@ -553,14 +651,14 @@ function App() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              color: page === 'shop' ? '#229ED9' : '#222',
+              color: page === 'shop' ? '#7f5fff' : '#666',
               fontWeight: page === 'shop' ? 600 : 400,
               fontSize: 16,
               flex: 1,
               cursor: 'pointer',
             }}
           >
-            <span style={{ fontSize: 24 }}>🛒</span>
+            <span style={{ fontSize: 20, marginBottom: 2 }}>☰</span>
             <span>Shop</span>
           </button>
           <button
@@ -572,14 +670,14 @@ function App() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              color: page === 'gifts' ? '#229ED9' : '#222',
+              color: page === 'gifts' ? '#7f5fff' : '#666',
               fontWeight: page === 'gifts' ? 600 : 400,
               fontSize: 16,
               flex: 1,
               cursor: 'pointer',
             }}
           >
-            <span style={{ fontSize: 24 }}>🎁</span>
+            <span style={{ fontSize: 20, marginBottom: 2 }}>◊</span>
             <span>My Gifts</span>
           </button>
           <button
@@ -591,14 +689,14 @@ function App() {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              color: page === 'profile' ? '#229ED9' : '#222',
+              color: page === 'profile' ? '#7f5fff' : '#666',
               fontWeight: page === 'profile' ? 600 : 400,
               fontSize: 16,
               flex: 1,
               cursor: 'pointer',
             }}
           >
-            <span style={{ fontSize: 24 }}>👤</span>
+            <span style={{ fontSize: 20, marginBottom: 2 }}>⚪</span>
             <span>Profile</span>
           </button>
         </div>
