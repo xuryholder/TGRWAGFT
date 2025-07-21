@@ -223,7 +223,7 @@ The project is distributed under the license specified in the `LICENSE` file.
 
 ## Demo
 
-The application is available at: [https://tgrwagft.fly.dev](https://tgrwagft.fly.dev)
+The application is available at: [https://t.me/tgrwagft_bot](https://t.me/tgrwagft_bot)
 
 ---
 
